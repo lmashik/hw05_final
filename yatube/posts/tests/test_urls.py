@@ -68,13 +68,6 @@ class URLTest(TestCase):
         template = 'core/404.html'
         self.assertTemplateUsed(response, template)
 
-    def test_403_page_url_use_correct_template(self):
-        """Страница permission_denied_view
-        использует кастомный шаблон."""
-        response = self.client.get('/unexisting-page/')
-        template = 'core/404.html'
-        self.assertTemplateUsed(response, template)
-
     def test_create_post_page_url_redirect_anonymous_on_login(self):
         """Страница по адресу /create/ перенаправит анонимного
         пользователя на страницу логина.
