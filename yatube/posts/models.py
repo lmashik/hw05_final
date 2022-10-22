@@ -96,7 +96,7 @@ class Comment(models.Model):
         verbose_name_plural = 'Комментарии'
 
     def __str__(self):
-        return self.text
+        return self.text[:50]
 
 
 class Follow(models.Model):
@@ -118,7 +118,7 @@ class Follow(models.Model):
         verbose_name_plural = 'Подписки'
         constraints = [
             models.UniqueConstraint(
-                fields=['user', 'author'],
-                name='User is not author'
+                fields=('user', 'author'),
+                name='Подписчик - не автор'
             )
         ]
